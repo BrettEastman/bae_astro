@@ -1,0 +1,34 @@
+---
+/**
+ * Footer for all pages. Features contact information as well as a link to the source code on
+ * GitHub.
+ */
+
+const bgClass = 'bg-gray-light-shade-900 dark:bg-gray-dark-shade-900';
+---
+
+<div style={{ 'grid-area': 'footer-left' }} class={bgClass}></div>
+<div
+    style={{ 'grid-area': 'footer-center' }}
+    class={`${bgClass} py-24 text-gray-light-300 dark:text-gray-dark-200`}
+>
+    <footer>
+        <p id="copyright" class="pt-8 text-15">© Lost Lanes Publishing</p>
+        <p class="text-15">
+            <a
+                class="underline"
+                rel="noreferrer"
+                target="_blank"
+                href="https://github.com/BrettEastman/bae_astro"
+                >View source code</a
+            >
+        </p>
+    </footer>
+</div>
+<div style={{ 'grid-area': 'footer-right' }} class={bgClass}></div>
+<script>
+    const copyright = document.getElementById('copyright');
+    if (copyright) {
+        copyright.innerHTML = `©${new Date().getFullYear()} Lost Lanes Publishing`;
+    }
+</script>
