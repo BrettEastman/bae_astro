@@ -1,15 +1,16 @@
 ---
+// javascript written up here will be on the server side
+import Button from "../components/Button";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home">
+	<p id="paragraph" class="text-5xl bg-blue-500 text-white">Home</p>
+	<Button client:load />
+</MainLayout>
+
+<script>
+  // javascript written down here will be on the client side
+  const para = document.querySelector('#paragraph');
+	para.textContent = "Home JS";
+</script>
