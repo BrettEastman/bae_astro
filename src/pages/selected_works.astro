@@ -1,12 +1,11 @@
 ---
 // javascript written up here will be on the server side
 import MainLayout from "../layouts/MainLayout.astro";
-const ulClass = 'mb-4';
+const ulClass = 'mb-4 p-2';
 const aClass = 'hover:border-b';
 ---
 
 <MainLayout title="Selected Works">
-	<p id="paragraph" class="text-5xl bg-blue-500 text-white"></p>
   <h3 class="flex justify-around uppercase text-3xl p-8 mt-4">Selected Works</h3>
   <div class="flex flex-col max-w-5xl m-auto h-screen">
     <div class="leading-relaxed text-lg">
@@ -40,6 +39,6 @@ const aClass = 'hover:border-b';
 
 <script>
   // javascript written down here will be on the client side
-  const para = document.querySelector('#paragraph');
-	para.textContent = "Selected Works";
 </script>
+
+<style lang="sass"></style>

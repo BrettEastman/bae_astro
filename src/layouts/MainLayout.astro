@@ -1,7 +1,8 @@
 ---
 // javascript written up here will be on the server side
-// import '../styles/global.css';
-import NavHeader from '../components/NavHeader.astro';
+import '../styles/global.css';
+import NameHeader from '../components/NameHeader.astro';
+import NavBar from '../components/NavBar.jsx';
 import Footer from '../components/Footer.astro';
 const { title } = Astro.props;
 ---
@@ -20,13 +21,14 @@ const { title } = Astro.props;
 				style={{ 'grid-area': 'header' }}
 				class="border-b-2 border-primary-light-shade-500 dark:border-primary-dark-900 bg-gray-light-300 dark:bg-gray-dark-900 pt-[10px] sm:pt-[58px] z-50"
 		>
-		<NavHeader />
+		<NameHeader class="ml-10 uppercase hover:border-b text-xl"/>
+		<NavBar />
 		</div>
 		<main
 				class="py-[48px] sm:py-[58px] md:py-[86px]"
 				style={{ 'grid-area': 'main' }}
 		>
-				<slot />
+		<slot />
 		</main>
 		<Footer />
   </body>

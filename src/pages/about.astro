@@ -3,13 +3,14 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Headshot from "./public/images/BrettFull.jpg";
 import Profile from "../components/Profile.astro";
+const pClass = 'mb-4 p-2';
 ---
 
 <MainLayout title="About">
   <h3 class="flex justify-around uppercase text-3xl p-8 mt-4">About</h3>
   <div class="flex flex-col max-w-5xl m-auto">
     <div class="leading-relaxed">
-      <p class="mb-4">
+      <p class={pClass}>
         Brett Austin Eastman is a composer, producer, teacher, and
         performing musician, whose music has been performed by Yarn/Wire and
         Del Sol String Quartet. He has recently been commissioned by
@@ -17,7 +18,7 @@ import Profile from "../components/Profile.astro";
         semifinalist in the NYC Contemporary Music Symposium competition of
         2021.
       </p>
-      <p class="mb-4">
+      <p class={pClass}>
         As concert curator, he is currently co-producing a concert series
         with Jessie Nucho featuring music for flute and electronics
         literally and conceptually inspired by different forms of feedback.
@@ -34,7 +35,7 @@ import Profile from "../components/Profile.astro";
         and co-wrote (with Jon Raskin) the score for the feature-length
         film, “The Murder of Hi Good,” by filmmaker Lee Lorenzo Lynch.
       </p>
-      <p class="mb-4">
+      <p class={pClass}>
         Brett Eastman has been an active teacher working in the San
         Francisco Bay Area since 2008, teaching private lessons to students
         of all ages in drums, guitar, and piano. He has taught many students
@@ -44,7 +45,7 @@ import Profile from "../components/Profile.astro";
         School’s Teacher Training institute for music teachers. To learn
         more about Brett as music teacher, click here.
       </p>
-      <p class="mb-4">
+      <p class={pClass}>
         As a performing rock musician, he cofounded, coproduced and played
         bass in sci-fi punk band Andy Human and the Reptoids. He has worked
         as a session musician in studios in the Bay Area, New York, and Los
@@ -53,18 +54,17 @@ import Profile from "../components/Profile.astro";
         by Bay Area underground bands including Preening, The World, Pang,
         Lenz, Baus, Penny Machine, Dancer, and Brian Glaze.
       </p>
-      <div class="flex justify-around">
+      <div class="flex justify-around p-2">
         <Profile
           imageMetaData={Headshot}
           alt="Picture of Brett Austin Eastman"
           name="Brett Austin Eastman"
-          title="Web Developer"
         />
       </div>
       <p class="flex justify-around text-sm mb-4">
         Photo by Travis Woodland
       </p>
-      <p class="mb-4">
+      <p class={pClass}>
         Brett was born in Redmond, WA on April 13, 1980. He grew up in
         Redding, CA before moving to San Francisco to study at San Francisco
         State University. He studied classical percussion with David
@@ -76,12 +76,7 @@ import Profile from "../components/Profile.astro";
 </MainLayout>
 
 <script>
-	import "../js/utils.js";
+	// javascript written down here will be on the client side
 </script>
 
-<style lang="sass">
-  p
-    color: goldenrod
-    &:hover
-      color: blue
-</style>
+<style lang="sass"></style>

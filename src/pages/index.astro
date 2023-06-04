@@ -3,18 +3,16 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Headshot from "./public/images/BrettB&W.jpg";
 import Profile from "../components/Profile.astro";
+import Greeting from '../components/Greeting.jsx';
 ---
 
 <MainLayout title="Home">
-	<p id="paragraph" class="text-5xl bg-blue-500 text-white"></p>
 	<main className="flex flex-col justify-around py-24">
-		<h3 className="flex justify-around uppercase text-3xl p-8">Home</h3>
 		<div className="flex justify-around">
 			<Profile
 				imageMetaData={Headshot}
 				alt="Picture of Brett Austin Eastman"
 				name="Brett Austin Eastman"
-				title="Web Developer"
 			/>
 		</div>
 	</main>
@@ -22,6 +20,6 @@ import Profile from "../components/Profile.astro";
 
 <script>
   // javascript written down here will be on the client side
-  const para = document.querySelector('#paragraph');
-	para.textContent = "Home JS";
 </script>
+
+<style lang="sass"></style>
