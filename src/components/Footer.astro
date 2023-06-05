@@ -9,16 +9,24 @@ const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
 
 <div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
   <footer>
-    <p id="copyright" class="pt-8 text-15"></p>
-    <p class="text-15">Designed and developed by Brett Austin Eastman: Astro | Typescript | React | Tailwind</p>
-    <div class="flex flex-row text-15 gap-1">
-        <img src="src/icons/github-142-svgrepo-com.svg" alt="" width={20}></img>
+    <p id="copyright" class="pt-8 pb-1 text-15"></p>
+    <p class="text-15 pb-3">Designed and developed by Brett Austin Eastman: Astro | Typescript | React | Tailwind</p>
+    <div class="flex flex-row text-15 gap-4">
         <a
         class="underline"
         rel="noreferrer"
         target="_blank"
         href="https://github.com/BrettEastman/bae_astro">View source code</a
         >
+        <a href="https://github.com/BrettEastman">
+          <img src="src/icons/github-142-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+        </a>
+        <a href="https://www.linkedin.com/in/brett-austin-eastman/">
+          <img src="src/icons/linkedin-rounded-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+        </a>
+        <a href="https://www.instagram.com/brettaustineastman/">
+          <img src="src/icons/instagram-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+        </a>
     </div>
   </footer>
 </div>
