@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log('menu open', menuOpen)
 
   const handleNav = () => {
-    console.log('menu-open', menuOpen)
     setMenuOpen(!menuOpen);
   };
 
@@ -52,7 +50,7 @@ export default function Navbar() {
         >
           <div  className="flex w-full items-center justify-end">
             <div onClick={handleNav} className="cursor-pointer">
-              {/* <img src="src/icons/close-md-svgrepo-com.svg" alt=""></img> */}
+              <img src="src/icons/close-md-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
             </div>
           </div>
           <div className="flex-col py-4">
