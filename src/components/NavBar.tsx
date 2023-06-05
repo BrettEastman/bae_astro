@@ -38,7 +38,7 @@ export default function Navbar() {
             </ul>
           </div>
           <button onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
-            <img src="src/icons/menu-svgrepo-com.svg" alt="" width={25}></img>
+            <img src="/src/icons/menu-svgrepo-com.svg" alt="" width={25}></img>
           </button>
         </div>
         <div
@@ -91,13 +91,13 @@ export default function Navbar() {
           </div>
           <div className="flex flex-row justify-around pt-10 items-center">
             <a href="https://github.com/BrettEastman">
-              <img src="src/icons/github-142-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src="/src/icons/github-142-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
             </a>
             <a href="https://www.linkedin.com/in/brett-austin-eastman/">
-              <img src="src/icons/linkedin-rounded-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src="/src/icons/linkedin-rounded-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
             </a>
             <a href="https://www.instagram.com/brettaustineastman/">
-              <img src="src/icons/instagram-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src="/src/icons/instagram-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
             </a>
           </div>
         </div>
