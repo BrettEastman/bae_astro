@@ -1,10 +1,11 @@
-import { Icon } from 'astro-icon';
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  console.log('menu open', menuOpen)
 
   const handleNav = () => {
+    console.log('menu-open', menuOpen)
     setMenuOpen(!menuOpen);
   };
 
@@ -13,7 +14,6 @@ export default function Navbar() {
       <nav className="w-full h-24 shadow-xl bg-white font-raleway">
         <div className="flex justify-between items-center h-full w-full px-4 2xl: px-16">
           <a href={"/"} className="ml-10 uppercase hover:border-b text-xl">Home
-            {/* <img src="src/icons/home-svgrepo-com.svg" alt="" size={5} className="cursor-pointer ml-12"></img> */}
           </a>
           <div className="hidden sm:flex">
             <ul className="hidden sm:flex">
@@ -39,9 +39,9 @@ export default function Navbar() {
               </a>
             </ul>
           </div>
-          <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
+          <button onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
             <img src="src/icons/menu-svgrepo-com.svg" alt="" width={25}></img>
-          </div>
+          </button>
         </div>
         <div
           className={
@@ -50,7 +50,7 @@ export default function Navbar() {
               : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
-          <div className="flex w-full items-center justify-end">
+          <div  className="flex w-full items-center justify-end">
             <div onClick={handleNav} className="cursor-pointer">
               {/* <img src="src/icons/close-md-svgrepo-com.svg" alt=""></img> */}
             </div>
