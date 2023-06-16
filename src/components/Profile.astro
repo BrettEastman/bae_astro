@@ -1,8 +1,4 @@
 ---
-/**
- * A layout that displays an image, title and description of a staff member.
- */
-
 import { Image } from "astro:assets";
 
 interface Props {
@@ -11,7 +7,7 @@ interface Props {
   name: string;
 }
 
-const { alt, imageMetaData, name, title } = Astro.props;
+const { alt, imageMetaData, name } = Astro.props;
 ---
 
 <div class="py-4">
