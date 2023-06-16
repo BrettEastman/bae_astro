@@ -1,4 +1,9 @@
 import { useState } from "react";
+import instagramIcon from '../icons/instagram-svgrepo-com.svg'
+import githubIcon from '../icons/github-142-svgrepo-com.svg'
+import linkedInIcon from '../icons/linkedin-rounded-svgrepo-com.svg'
+import closeIcon from '../icons/close-md-svgrepo-com.svg'
+import hamburgerIcon from '../icons/menu-svgrepo-com.svg'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +43,7 @@ export default function Navbar() {
             </ul>
           </div>
           <button onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
-            <img src="../src/icons/menu-svgrepo-com.svg" alt="" width={25}></img>
+            <img src={(hamburgerIcon as any).src} alt="" width={25}></img>
           </button>
         </div>
         <div
@@ -50,7 +55,7 @@ export default function Navbar() {
         >
           <div  className="flex w-full items-center justify-end">
             <div onClick={handleNav} className="cursor-pointer">
-              <img src="../src/icons/close-md-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src={(closeIcon as any).src} alt="" width={30} className="cursor-pointer"></img>
             </div>
           </div>
           <div className="flex-col py-4">
@@ -91,13 +96,13 @@ export default function Navbar() {
           </div>
           <div className="flex flex-row justify-around pt-10 items-center">
             <a href="https://github.com/BrettEastman">
-              <img src="../src/icons/github-142-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src={(githubIcon as any).src} alt="Github" width={30} className="cursor-pointer" />
             </a>
             <a href="https://www.linkedin.com/in/brett-austin-eastman/">
-              <img src="../src/icons/linkedin-rounded-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src={(linkedInIcon as any).src} alt="LinkedIn" width={30} className="cursor-pointer" />
             </a>
             <a href="https://www.instagram.com/brettaustineastman/">
-              <img src="../src/icons/instagram-svgrepo-com.svg" alt="" width={30} className="cursor-pointer"></img>
+              <img src={(instagramIcon as any).src} alt="Instagram" width={30} className="cursor-pointer" />
             </a>
           </div>
         </div>

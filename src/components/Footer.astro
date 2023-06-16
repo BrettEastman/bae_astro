@@ -5,7 +5,11 @@
  */
 
 const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
+import instagramIcon from '../icons/instagram-svgrepo-com.svg'
+import githubIcon from '../icons/github-142-svgrepo-com.svg'
+import linkedInIcon from '../icons/linkedin-rounded-svgrepo-com.svg'
 ---
+
 
 <div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
   <footer>
@@ -19,13 +23,13 @@ const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
         href="https://github.com/BrettEastman/bae_astro">View source code</a
         >
         <a href="https://github.com/BrettEastman">
-          <img src="./src/icons/github-142-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+          <img src={githubIcon.src} alt="" width={20} class="cursor-pointer"></img>
         </a>
         <a href="https://www.linkedin.com/in/brett-austin-eastman/">
-          <img src="./src/icons/linkedin-rounded-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+          <img src={instagramIcon.src} alt="" width={20} class="cursor-pointer"></img>
         </a>
         <a href="https://www.instagram.com/brettaustineastman/">
-          <img src="./src/icons/instagram-svgrepo-com.svg" alt="" width={20} className="cursor-pointer"></img>
+          <img src={linkedInIcon.src} alt="" width={20} class="cursor-pointer"></img>
         </a>
     </div>
   </footer>
