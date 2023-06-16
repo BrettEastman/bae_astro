@@ -1,15 +1,10 @@
 ---
-/**
- * Footer for all pages. Features contact information as well as a link to the source code on
- * GitHub.
- */
-
+// Server Side
 const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
 import instagramIcon from '../icons/instagram-svgrepo-com.svg'
 import githubIcon from '../icons/github-142-svgrepo-com.svg'
 import linkedInIcon from '../icons/linkedin-rounded-svgrepo-com.svg'
 ---
-
 
 <div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
   <footer>
@@ -36,6 +31,7 @@ import linkedInIcon from '../icons/linkedin-rounded-svgrepo-com.svg'
 </div>
 
 <script>
+  // Client Side
   const copyright = document.getElementById("copyright");
   if (copyright) {
     copyright.innerHTML = `©${new Date().getFullYear()} Lost Lanes Publishing`;
