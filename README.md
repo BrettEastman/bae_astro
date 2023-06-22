@@ -23,9 +23,9 @@ The portfolio site of Brett Austin Eastman.
   cd bae_astro
 ```
 
-## 🧞 Commands
+## Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root directory of the project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
