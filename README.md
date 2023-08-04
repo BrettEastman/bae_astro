@@ -7,8 +7,7 @@ The portfolio site of Brett Austin Eastman.
 - [Brett Eastman](https://github.com/BrettEastman)
 
 ## Tech Stack
- <br>
-![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)
+![Built with Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=fff&style=for-the-badge)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![TypeScript](https://img.shields.io/static/v1?style=for-the-badge&message=TypeScript&color=3178C6&logo=TypeScript&logoColor=FFFFFF&label=)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
