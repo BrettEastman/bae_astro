@@ -1,31 +1,47 @@
 ---
 // Server Side
 const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
-import instagramIcon from '../icons/instagram-svgrepo-com.svg'
-import githubIcon from '../icons/github-142-svgrepo-com.svg'
-import linkedInIcon from '../icons/linkedin-rounded-svgrepo-com.svg'
+import instagramIcon from "../icons/instagram-svgrepo-com.svg";
+import githubIcon from "../icons/github-142-svgrepo-com.svg";
+import linkedInIcon from "../icons/linkedin-rounded-svgrepo-com.svg";
 ---
 
 <div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
   <footer>
     <p id="copyright" class="pt-8 pb-1 text-15"></p>
-    <p class="text-15 pb-3">Designed and developed by Brett Austin Eastman: Astro | Typescript | React | Tailwind</p>
+    <p class="text-15 pb-3">
+      Designed and developed by Brett Austin Eastman: Astro | Typescript | React
+      | Tailwind
+    </p>
     <div class="flex flex-row text-15 gap-4">
-        <a
+      <a
         class="underline"
         rel="noreferrer"
         target="_blank"
         href="https://github.com/BrettEastman/bae_astro">View source code</a
-        >
-        <a href="https://github.com/BrettEastman">
-          <img src={githubIcon.src} alt="" width={20} class="cursor-pointer"></img>
-        </a>
-        <a href="https://www.linkedin.com/in/brett-austin-eastman/">
-          <img src={linkedInIcon.src} alt="" width={20} class="cursor-pointer"></img>
-        </a>
-        <a href="https://www.instagram.com/brettaustineastman/">
-          <img src={instagramIcon.src} alt="" width={20} class="cursor-pointer"></img>
-        </a>
+      >
+      <a href="https://github.com/BrettEastman" target="_blank">
+        <img src={githubIcon.src} alt="" width={20} class="cursor-pointer" /></a
+      >
+      <a
+        href="https://www.linkedin.com/in/brett-austin-eastman/"
+        target="_blank"
+      >
+        <img
+          src={linkedInIcon.src}
+          alt=""
+          width={20}
+          class="cursor-pointer"
+        /></a
+      >
+      <a href="https://www.instagram.com/brettaustineastman/" target="_blank">
+        <img
+          src={instagramIcon.src}
+          alt=""
+          width={20}
+          class="cursor-pointer"
+        /></a
+      >
     </div>
   </footer>
 </div>
