@@ -2,7 +2,7 @@
 // Server Side
 import MainLayout from "../layouts/MainLayout.astro";
 const ulClass = "mb-4 p-2";
-const aClass = "hover:border-b";
+const aClass = "hover:border-b hover:text-gray-400 duration-300";
 ---
 
 <MainLayout title="Selected Works">
@@ -12,8 +12,14 @@ const aClass = "hover:border-b";
   <div class="flex flex-col max-w-5xl m-auto">
     <div class="leading-relaxed text-lg md:text-xl">
       <ul class={ulClass}>
-        <em>Internal/External</em>
-        for solo flute and Max MSP electronics (2022)
+        <a class={aClass} href="https://youtu.be/s_re25nOkq8" target="_blank"
+          ><em>Internal/External</em></a
+        > for solo flute and Max MSP electronics (2022)
+        <a
+          class={aClass}
+          href="https://drive.google.com/file/d/1MRRoPEmUf1chrqRHbMwg3b_8IYUsvMip/view?usp=sharing"
+          target="_blank"><b>score</b></a
+        >
       </ul>
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/J451WMaAms8" target="_blank"
@@ -28,7 +34,12 @@ const aClass = "hover:border-b";
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/1y72j58PL-Y" target="_blank"
           ><em>Passover</em></a
-        > for solo flute (2020)
+        > for solo flute (2020) -
+        <a
+          class={aClass}
+          href="https://drive.google.com/file/d/12ygPHCzmbl4aT7BpYVQOv9TIcrlbDy0Y/view?usp=sharing"
+          target="_blank"><b>score</b></a
+        >
       </ul>
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/HyKHnJb5nfI" target="_blank"
@@ -38,17 +49,32 @@ const aClass = "hover:border-b";
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/CbMFIUBiRjg" target="_blank"
           ><em>Paraphrase</em></a
-        > for bass clarinet, viola, and piano (2019)
+        > for bass clarinet, viola, and piano (2019) -
+        <a
+          class={aClass}
+          href="https://newmusicshelf.com/product/paraphrase/"
+          target="_blank"><b>score</b></a
+        >
       </ul>
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/S7T-7jmADfA" target="_blank"
           ><em>Keepsake (for Rishi)</em></a
-        > for amplified contrabass flute and contraforte (2018)
+        > for amplified contrabass flute and contraforte (2018) -
+        <a
+          class={aClass}
+          href="https://drive.google.com/file/d/1qR65uv7CkxfHIUbQVhsGZmMe7ZxnwqHF/view?usp=sharing"
+          target="_blank"><b>score</b></a
+        >
       </ul>
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/ym51ZzgkxN0" target="_blank"
           ><em>La Musique</em></a
-        > for flute and alto flute (2017)
+        > for flute and alto flute (2017) -
+        <a
+          class={aClass}
+          href="https://newmusicshelf.com/product/la-musique-brett-austin-eastman/"
+          target="_blank"><b>score</b></a
+        >
       </ul>
       <ul class={ulClass}>
         <a class={aClass} href="https://youtu.be/qX9J_GU7hwI" target="_blank"
@@ -60,7 +86,12 @@ const aClass = "hover:border-b";
           class={aClass}
           href="https://soundcloud.com/brett-austin-eastman-1/mainframe-movements-4-5-6-7"
           target="_blank"><em>MAINFRAME</em></a
-        > for string quartet (2016)
+        > for string quartet (2016) -
+        <a
+          class={aClass}
+          href="https://newmusicshelf.com/product/mainframe/"
+          target="_blank"><b>score</b></a
+        >
       </ul>
     </div>
   </div>
