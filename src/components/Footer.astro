@@ -1,25 +1,36 @@
 ---
 // Server Side
 const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
-import instagramIcon from "../icons/instagram-svgrepo-com.svg";
 import githubIcon from "../icons/github-142-svgrepo-com.svg";
+import instagramIcon from "../icons/instagram-svgrepo-com.svg";
 import linkedInIcon from "../icons/linkedin-rounded-svgrepo-com.svg";
+const aClass = "border-b hover:text-gray-400 duration-300";
 ---
 
 <div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
-  <footer>
-    <p id="copyright" class="pt-8 pb-1 text-15"></p>
-    <p class="text-15 pb-3">
-      Designed and developed by Brett Austin Eastman: Astro | Typescript | React
-      | Tailwind
+  <footer class="flex flex-col gap-2">
+    <p>
+      Designed and developed by <a
+        href="https://www.bretteastman.dev/"
+        class={aClass}>Brett Austin Eastman</a
+      >: Astro | Typescript | React | Tailwind
     </p>
-    <div class="flex flex-row text-15 gap-4">
+    <div class="flex flex-row gap-4">
       <a
-        class="underline"
+        class="underline hover:text-gray-400 duration-300"
         rel="noreferrer"
         target="_blank"
         href="https://github.com/BrettEastman/bae_astro">View source code</a
       >
+      <a
+        class="underline hover:text-gray-400 duration-300"
+        rel="noreferrer"
+        target="_blank"
+        href="https://www.bretteastman.dev/">View developer portfolio</a
+      >
+    </div>
+    <div class="flex flex-row gap-4 pt-2">
+      <p>Connect with me:</p>
       <a href="https://github.com/BrettEastman" target="_blank">
         <img src={githubIcon.src} alt="" width={20} class="cursor-pointer" /></a
       >
@@ -43,6 +54,7 @@ import linkedInIcon from "../icons/linkedin-rounded-svgrepo-com.svg";
         /></a
       >
     </div>
+    <p id="copyright" class="mt-12 text-center"></p>
   </footer>
 </div>
 
