@@ -2,6 +2,7 @@
 // Server Side
 import MainLayout from "../layouts/MainLayout.astro";
 import YouTubeEmbed from "../components/YouTubeEmbed";
+import YouTubeEmbedLazy from "../components/YouTubeEmbedLazy.astro";
 const aClass = "hover:border-b hover:text-gray-400 duration-300";
 ---
 
@@ -11,12 +12,17 @@ const aClass = "hover:border-b hover:text-gray-400 duration-300";
   </h3>
   <div class="flex flex-col max-w-5xl m-auto text-lg md:text-xl">
     <div class="leading-relaxed">
-      <YouTubeEmbed
+      <YouTubeEmbedLazy
+        videoId="0sHtHnsIk2w"
+        title="The Murder of Hi Good (trailer)"
+
+      />
+      <!-- <YouTubeEmbed
         width="100%"
         height="100%"
         src={"https://www.youtube.com/embed/0sHtHnsIk2w"}
         title={"YouTube video player"}
-      />
+      /> -->
       <p class="mb-8 mt-5">
         The Murder of Hi Good is a true-crime revisionist western shot on 35mm,
         Super 16mm, Super 8mm and digital video. Set in Northern California in
