@@ -1,8 +1,6 @@
 ---
 // Server Side
 import "../styles/global.css";
-import NameHeader from "../components/NameHeader.astro";
-// import NavBar from "../components/NavBar.jsx";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 const { title } = Astro.props;
@@ -25,8 +23,6 @@ const { title } = Astro.props;
       <div
         class="border-b-2 border-primary-light-shade-500 mb-8 dark:border-primary-dark-900 bg-gray-light-300 dark:bg-gray-dark-900 pt-[10px] sm:pt-[58px] z-50"
       >
-        <NameHeader class="pb-4" />
-        <!-- <NavBar client:load /> -->
         <Header />
       </div>
       <main class="grow p-4">

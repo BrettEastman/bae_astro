@@ -15,13 +15,6 @@ const { videoId, title, thumbnailRes = 'sd' } = Astro.props;
 
 <div class="stack">
   <YouTube title={title} videoId={videoId} thumbnailRes={thumbnailRes ? thumbnailRes : undefined} />
-  {
-    title && (
-      <p>
-        <em>{title}</em>
-      </p>
-    )
-  }
 </div>
 
 <style>

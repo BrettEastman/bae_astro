@@ -4,18 +4,18 @@ const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
 import githubIcon from "../icons/github-142-svgrepo-com.svg";
 import instagramIcon from "../icons/instagram-svgrepo-com.svg";
 import linkedInIcon from "../icons/linkedin-rounded-svgrepo-com.svg";
-const aClass = "border-b hover:text-gray-400 duration-300";
+const aClass = "justify-center border-b hover:text-gray-400 duration-300";
 ---
 
-<div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
+<div class={`${bgClass} p-8 mt-8 text-gray-light-300 dark:text-gray-dark-200 flex justify-center`}>
   <footer class="flex flex-col gap-2">
     <p>
-      Designed and developed by <a
+      Developed by <a
         href="https://www.bretteastman.dev/"
         class={aClass}>Brett Austin Eastman</a
       >: Astro | Typescript | React | Tailwind
     </p>
-    <div class="flex flex-row gap-4">
+    <div class="flex flex-row gap-4 justify-center">
       <a
         class="underline hover:text-gray-400 duration-300"
         rel="noreferrer"
@@ -29,7 +29,7 @@ const aClass = "border-b hover:text-gray-400 duration-300";
         href="https://www.bretteastman.dev/">View developer portfolio</a
       >
     </div>
-    <div class="flex flex-row gap-4 pt-2">
+    <div class="flex flex-row gap-4 pt-2 justify-center">
       <p>Connect with me:</p>
       <a href="https://github.com/BrettEastman" target="_blank">
         <img src={githubIcon.src} alt="" width={20} class="cursor-pointer" /></a
@@ -54,7 +54,7 @@ const aClass = "border-b hover:text-gray-400 duration-300";
         /></a
       >
     </div>
-    <p id="copyright" class="mt-12 text-center"></p>
+    <p id="copyright" class="mt-2 text-center"></p>
   </footer>
 </div>
 
