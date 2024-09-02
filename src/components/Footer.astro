@@ -1,5 +1,13 @@
 ---
 // Server Side
+import Social from "./Social.astro";
+
+const socials = [
+  { platform: "instagram", username: "brettaustineastman" },
+  { platform: "linkedin", username: "in/brett-austin-eastman" },
+  { platform: "github", username: "BrettEastman" },
+];
+
 const bgClass = "bg-primary80 dark:bg-primary10";
 import githubIcon from "../icons/github-142-svgrepo-com.svg";
 import instagramIcon from "../icons/instagram-svgrepo-com.svg";
@@ -42,10 +50,17 @@ const aClass = "justify-center hover:text-accentDark duration-200";
         href="https://www.bretteastman.dev/">View developer portfolio</a
       >
     </div>
-    <div class="flex flex-row gap-4 pt-2 justify-center">
+    <div class="socials">
+      {
+        socials.map((social) => (
+          <Social platform={social.platform} username={social.username} />
+        ))
+      }
+    </div>
+    <!-- <div class="flex flex-row gap-4 pt-2 justify-center">
       <p>Connect with me:</p>
       <a href="https://github.com/BrettEastman" target="_blank">
-        <img src={githubIcon.src} alt="" width={20} class="cursor-pointer" /></a
+        <img src={githubIcon.src} alt="" width={20} class="cursor-pointer co" /></a
       >
       <a
         href="https://www.linkedin.com/in/brett-austin-eastman/"
@@ -66,7 +81,7 @@ const aClass = "justify-center hover:text-accentDark duration-200";
           class="cursor-pointer"
         /></a
       >
-    </div>
+    </div> -->
     <p id="copyright" class="mt-2 text-center"></p>
   </footer>
 </div>

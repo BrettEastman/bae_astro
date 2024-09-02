@@ -132,6 +132,26 @@ h6 {
   margin: 0 1rem 1.5rem 1rem;
 }
 
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.platforms {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: var(--icon);
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 300ms;
+}
+
+.socials a:hover {
+  color: var(--accentDark);
+}
+
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
   .hamburger {
