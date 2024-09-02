@@ -1,60 +1,60 @@
 ---
 // Server Side
-const bgClass = "bg-gray-light-shade-900 dark:bg-gray-dark-shade-900";
-import githubIcon from "../icons/github-142-svgrepo-com.svg";
-import instagramIcon from "../icons/instagram-svgrepo-com.svg";
-import linkedInIcon from "../icons/linkedin-rounded-svgrepo-com.svg";
-const aClass = "border-b hover:text-gray-400 duration-300";
+import Social from "./Social.astro";
+
+const socials = [
+  { platform: "instagram", username: "brettaustineastman" },
+  { platform: "linkedin", username: "in/brett-austin-eastman" },
+  { platform: "github", username: "BrettEastman" },
+];
+
+const bgClass = "bg-primary80 dark:bg-primary10";
+const aClass = "justify-center hover:text-accentDark duration-200";
 ---
 
-<div class={`${bgClass} p-8 text-gray-light-300 dark:text-gray-dark-200`}>
+<div
+  class={`${bgClass} p-8 text-primary30 dark:text-primary70 flex justify-center`}
+>
   <footer class="flex flex-col gap-2">
-    <p>
-      Designed and developed by <a
+    <p class="hidden sm:inline">
+      {'Website designed and developed by '}<a
         href="https://www.bretteastman.dev/"
-        class={aClass}>Brett Austin Eastman</a
-      >: Astro | Typescript | React | Tailwind
+        class={aClass}> Brett Austin Eastman</a
+      >
     </p>
-    <div class="flex flex-row gap-4">
+    <div class="sm:hidden">
+      <div class="flex justify-center">
+        <p>Website designed and developed by:</p>
+      </div>
+      <div class="flex justify-center mb-4">
+        <a href="https://www.bretteastman.dev/" class={aClass}
+          >Brett Austin Eastman</a
+        >
+      </div>
+    </div>
+
+    <div class="flex flex-row gap-4 justify-center">
       <a
-        class="underline hover:text-gray-400 duration-300"
+        class="underline hover:text-accentDark duration-200"
         rel="noreferrer"
         target="_blank"
         href="https://github.com/BrettEastman/bae_astro">View source code</a
       >
       <a
-        class="underline hover:text-gray-400 duration-300"
+        class="underline hover:text-accentDark duration-200"
         rel="noreferrer"
         target="_blank"
         href="https://www.bretteastman.dev/">View developer portfolio</a
       >
     </div>
-    <div class="flex flex-row gap-4 pt-2">
-      <p>Connect with me:</p>
-      <a href="https://github.com/BrettEastman" target="_blank">
-        <img src={githubIcon.src} alt="" width={20} class="cursor-pointer" /></a
-      >
-      <a
-        href="https://www.linkedin.com/in/brett-austin-eastman/"
-        target="_blank"
-      >
-        <img
-          src={linkedInIcon.src}
-          alt=""
-          width={20}
-          class="cursor-pointer"
-        /></a
-      >
-      <a href="https://www.instagram.com/brettaustineastman/" target="_blank">
-        <img
-          src={instagramIcon.src}
-          alt=""
-          width={20}
-          class="cursor-pointer"
-        /></a
-      >
+    <div class="socials">
+      {
+        socials.map((social) => (
+          <Social platform={social.platform} username={social.username} />
+        ))
+      }
     </div>
-    <p id="copyright" class="mt-12 text-center"></p>
+    <p id="copyright" class="mt-2 text-center"></p>
   </footer>
 </div>
 

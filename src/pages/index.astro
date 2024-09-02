@@ -3,9 +3,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Headshot from "../images/P1002198.jpg";
 import Profile from "../components/Profile.astro";
+
+const pageTitle = "Home";
+const description =
+  "Brett Austin Eastman is a musician and composer from San Francisco.";
 ---
 
-<MainLayout title="Home">
+<MainLayout title={pageTitle} description={description}>
 	<main class="flex flex-col justify-around py-12">
 		<div class="flex justify-around">
 			<Profile

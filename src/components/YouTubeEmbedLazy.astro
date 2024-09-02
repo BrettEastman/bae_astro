@@ -1,0 +1,28 @@
+---
+import { YouTube } from "astro-lazy-youtube-embed";
+
+type ThumbnailRes = 120 | '120' | 'default' | 320 | '320' | 'medium' | 'mq' | 480 | '480' | 'high' | 'hq' | 640 | '640' | 'standard' | 'sd' | 1280 | '1280' | 'maxres'
+
+interface Props {
+  videoId: string;
+  title: string;
+  composer?: string;
+  thumbnailRes?: ThumbnailRes;
+}
+
+const { videoId, title, thumbnailRes = 'sd' } = Astro.props;
+---
+
+<div class="stack">
+  <YouTube title={title} videoId={videoId} thumbnailRes={thumbnailRes ? thumbnailRes : undefined} />
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+</style>

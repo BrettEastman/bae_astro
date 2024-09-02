@@ -1,36 +1,66 @@
 ---
 // Server Side
 import "../styles/global.css";
-import NameHeader from "../components/NameHeader.astro";
-import NavBar from "../components/NavBar.jsx";
 import Footer from "../components/Footer.astro";
-const { title } = Astro.props;
+import Header from "../components/Header.astro";
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
       content="Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"
     />
-    <title>{title}</title>
+     <!-- Facebook Meta Tags -->
+     <meta property="og:url" content="https://www.brettaustineastman.com/" />
+     <meta property="og:type" content="website" />
+     <meta property="og:title" content={title} />
+     <meta
+       property="og:description"
+       content={description || "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
+     />
+     <meta
+       property="og:image"
+       content="/P1002198.jpg"
+     />
+
+     <!-- Twitter Meta Tags -->
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta property="twitter:domain" content="heliamusiccollective.com" />
+     <meta
+       property="twitter:url"
+       content="https://www.brettaustineastman.com/"
+     />
+     <meta name="twitter:title" content={title} />
+     <meta
+       name="twitter:description"
+       content={description || "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
+     />
+     <meta
+       name="twitter:image"
+       content="/P1002198.jpg"
+     />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/BAEicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Brett Austin Eastman</title>
   </head>
   <body>
     <div class="min-h-screen flex flex-col">
       <div
-        class="border-b-2 border-primary-light-shade-500 mb-8 dark:border-primary-dark-900 bg-gray-light-300 dark:bg-gray-dark-900 pt-[10px] sm:pt-[58px] z-50"
+        class="bg-primary80 dark:bg-primary30 border-b-2 border-primary70 pb-8 dark:border-primary30 shadow-2xl dark:shadow-xl dark:shadow-primary50 pt-[10px] sm:pt-16 z-50"
       >
-        <NameHeader class="pb-4"/>
-        <NavBar client:load/>
+        <Header />
       </div>
-        <main class="grow p-4">
-          <slot />
-        </main>
-        <Footer />
+      <main class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60">
+        <slot />
+      </main>
+      <Footer />
+      <script>
+        import "../scripts/menu.js";
+      </script>
     </div>
   </body>
 </html>
