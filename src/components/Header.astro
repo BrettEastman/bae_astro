@@ -4,16 +4,18 @@ import Hamburger from "./Hamburger.astro";
 ---
 
 <header>
-  <h1
-    class="flex justify-around uppercase p-8 mb-12 tracking-wider text-4xl font-medium text-center text-primary10 dark:text-primary70 md:text-5xl lg:text-7xl"
-  >
-    <a href='/' aria-label="Go to Home Page">Brett Austin Eastman</a>
-  </h1>
   <div class="name-header">
-    <Hamburger />
-    <!-- <div style={{ height: "100px" }}>
-      <div>Image here?</div>
-    </div> -->
+    <h1
+      class="uppercase tracking-wider text-4xl font-medium text-center text-primary10 dark:text-primary70 md:text-5xl lg:text-7xl lg:p-8 lg:mb-12"
+    >
+      <a class="hidden lg:flex" href='/' aria-label="Go to Home Page">Brett Austin Eastman</a>
+      <a class="hidden md:flex lg:hidden" href='/' aria-label="Go to Home Page">Brett A. Eastman</a>
+      <a class="hidden sm:flex sm:align-center md:hidden" href='/' aria-label="Go to Home Page">Brett Eastman</a>
+      <a class="sm:hidden" href='/' aria-label="Go to Home Page">Brett</a>
+    </h1>
+    <div class="flex justify-center">
+      <Hamburger />
+    </div>
   </div>
   <nav class="flex justify-around">
     <Navigation />
