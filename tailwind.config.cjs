@@ -26,11 +26,6 @@ module.exports = {
         footerBackground: "#f9f9f9",
         heroBackground: "#ced0d7",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--titleBrown))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--titleBrown))",
-      },
     },
   },
   plugins: [],
