@@ -3,9 +3,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 const ulClass = "mb-4 p-2";
 const aClass = "border-b border-primary10 dark:border-primary70 hover:text-accentDark hover:border-none duration-200";
+
+const pageTitle = "About";
+const description =
+  "Here you will find a list of selected classical and new music compositions by Brett Austin Eastman.";
 ---
 
-<MainLayout title="Selected Works">
+<MainLayout title={pageTitle} description={description}>
   <h3 class="flex justify-around uppercase text-3xl md:text-4xl mt-4 pb-8">
     Selected Works
   </h3>

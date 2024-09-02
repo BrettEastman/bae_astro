@@ -3,9 +3,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import YouTubeEmbedLazy from "../components/YouTubeEmbedLazy.astro";
 const aClass = "border-b border-primary10 dark:border-primary70 hover:text-accentDark hover:border-none duration-200";
+
+const pageTitle = "About";
+const description =
+  "Learn more about Brett Austin Eastman's work in sound design.";
 ---
 
-<MainLayout title="Sound Design">
+<MainLayout title={pageTitle} description={description}>
   <h3 class="flex justify-around uppercase mt-4 mb-4 pb-8 text-3xl md:text-4xl">
     Sound Design
   </h3>
