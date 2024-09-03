@@ -38,7 +38,6 @@
 html,
 body {
   height: 100%;
-  /* background-color: rgba(241, 238, 232, 0.2); */
 }
 
 body {
@@ -88,7 +87,7 @@ h6 {
 }
 .nav-links a {
   padding: 15px 20px;
-  color: var(--navText);
+  color: var(--primary40);
   text-decoration: none;
   font-size: 20px;
   text-transform: uppercase;
@@ -105,13 +104,12 @@ h6 {
   z-index: 2;
 }
 .hamburger .line {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 40px;
   height: 2px;
   border-radius: 12px;
   margin-bottom: 10px;
-  background-color: var(--navText);
+  background-color: var(--primary40);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .hamburger.active .line:nth-child(1) {
@@ -130,7 +128,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin: 0 1rem 1.5rem 1rem; */
+  margin: 0 1rem 1.5rem 1rem;
 }
 
 .socials {
@@ -156,14 +154,14 @@ h6 {
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
   .hamburger {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    /* flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+    justify-content: center; */
+    /* width: 40px;
+    height: 40px; */
 
-    /* padding: 20px; */
+    padding: 20px;
     cursor: pointer;
   }
   .name-header {
