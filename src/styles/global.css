@@ -64,11 +64,11 @@ h6 {
   isolation: isolate;
 }
 
-.page-fade {
+body {
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.page-fade.visible {
+body.fade-visible {
   opacity: 1;
 }
 
