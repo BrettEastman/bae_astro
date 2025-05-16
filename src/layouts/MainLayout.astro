@@ -47,7 +47,7 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} - Brett Austin Eastman</title>
   </head>
-  <body>
+  <body class="page-fade">
     <div class="min-h-screen flex flex-col">
       <div
         class="bg-primary80 dark:bg-primary30 border-b-2 border-primary70 pb-2 dark:border-primary30 shadow-xl dark:shadow-none pt-[10px] sm:pt-16 sm:pb-8 z-50"
@@ -61,6 +61,7 @@ const { title, description } = Astro.props;
       <script>
         import "../scripts/menu.js";
       </script>
+      <script src="/fade.js" is:inline></script>
     </div>
   </body>
 </html>
