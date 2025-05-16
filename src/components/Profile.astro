@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 interface Props {
   alt: string;
   imageMetaData: ImageMetadata;
-  name: string;
+  name?: string;
 }
 
 const { alt, imageMetaData, name } = Astro.props;
@@ -13,10 +13,7 @@ const { alt, imageMetaData, name } = Astro.props;
 
 <div class="py-4">
   <div class="flex flex-col items-center justify-center">
-    <Image width={750} alt={alt} src={imageMetaData} />
-    <h2 class="py-4 font-medium text-20">{name}</h2>
-  </div>
-  <div class="grid gap-2 body-1">
-    <slot />
+    <Image width={750} alt={alt} src={imageMetaData} class="rounded-lg"/>
+    <h2 class="py-4 font-medium text-20">{name ? name : ""}</h2>
   </div>
 </div>

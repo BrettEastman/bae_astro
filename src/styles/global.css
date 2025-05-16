@@ -1,5 +1,4 @@
 /* Main CSS */
-
 *,
 *::before,
 *::after {
@@ -63,6 +62,14 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+body {
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.fade-visible {
+  opacity: 1;
 }
 
 /* nav styles */
@@ -167,7 +174,7 @@ h6 {
   }
   .nav-links a {
     padding: 10px 20px;
-    text-align: center;
+    text-align: left;
   }
 }
 
