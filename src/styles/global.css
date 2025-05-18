@@ -64,12 +64,10 @@ h6 {
   isolation: isolate;
 }
 
-body {
-  opacity: 0;
-  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-body.fade-visible {
+/* Page transition styles */
+main {
   opacity: 1;
+  transition: opacity 300ms ease;
 }
 
 /* nav styles */

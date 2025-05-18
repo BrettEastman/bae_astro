@@ -54,7 +54,7 @@ const { title, description } = Astro.props;
       >
         <Header />
       </div>
-      <main class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60">
+      <main class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60 transition-fade">
         <slot />
       </main>
       <Footer />
@@ -62,6 +62,43 @@ const { title, description } = Astro.props;
         import "../scripts/menu.js";
       </script>
     </div>
-    <script src="/page-transition.js" is:inline />
+    <script is:inline>
+      // Use client-side JavaScript for page transitions
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initialize page transitions
+        const initPageTransitions = () => {
+          document.querySelectorAll('a[href]').forEach(link => {
+            // Only handle internal links
+            if (
+              link.hostname === window.location.hostname &&
+              !link.hasAttribute('target') &&
+              !link.href.startsWith('mailto:') &&
+              !link.href.startsWith('tel:') &&
+              !link.hasAttribute('data-no-transition')
+            ) {
+              link.addEventListener('click', e => {
+                e.preventDefault();
+                const currentPage = document.querySelector('main');
+                const href = link.getAttribute('href');
+
+                // Start fade out
+                currentPage.style.opacity = '0';
+
+                // Navigate after transition completes
+                setTimeout(() => {
+                  window.location.href = href;
+                }, 300);
+              });
+            }
+          });
+        };
+
+        // Initialize on page load
+        initPageTransitions();
+
+        // Make sure the page is visible when loaded
+        document.querySelector('main').style.opacity = '1';
+      });
+    </script>
 </body>
 </html>
