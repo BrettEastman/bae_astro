@@ -13,6 +13,15 @@ const { title, description } = Astro.props;
       name="description"
       content="Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"
     />
+     <!-- Adding dark mode script at the top to avoid flash -->
+     <script is:inline>
+      // Check for dark mode preference
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Apply dark mode class immediately to prevent flash
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+      }
+     </script>
      <!-- Facebook Meta Tags -->
      <meta property="og:url" content="https://www.brettaustineastman.com/" />
      <meta property="og:type" content="website" />
@@ -87,7 +96,7 @@ const { title, description } = Astro.props;
                 // Navigate after transition completes
                 setTimeout(() => {
                   window.location.href = href;
-                }, 300);
+                }, 150); // Reduced from 300ms to 150ms for faster transitions
               });
             }
           });
@@ -98,6 +107,17 @@ const { title, description } = Astro.props;
 
         // Make sure the page is visible when loaded
         document.querySelector('main').style.opacity = '1';
+      });
+    </script>
+
+    <!-- Ensure dark mode is maintained across page loads -->
+    <script is:inline>
+      // Check for stored dark mode preference on each page load
+      document.addEventListener('DOMContentLoaded', () => {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+          document.documentElement.classList.add('dark');
+        }
       });
     </script>
 </body>

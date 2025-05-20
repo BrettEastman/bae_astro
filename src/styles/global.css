@@ -65,9 +65,17 @@ h6 {
 }
 
 /* Page transition styles */
+html {
+  background-color: var(--primary100); /* Light mode background */
+}
+
+html.dark {
+  background-color: var(--primary20); /* Dark mode background */
+}
+
 main {
   opacity: 1;
-  transition: opacity 300ms ease;
+  transition: opacity 150ms ease; /* Shorter transition */
 }
 
 /* nav styles */
