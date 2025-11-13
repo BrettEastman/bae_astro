@@ -3,7 +3,7 @@ import type { APIRoute } from "astro";
 
 export const POST: APIRoute = async ({ request }) => {
   const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2024-12-18.acacia",
+    apiVersion: "2025-10-29.clover",
   });
 
   const body = await request.text();

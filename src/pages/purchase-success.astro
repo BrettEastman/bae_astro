@@ -15,7 +15,7 @@ let purchasedProduct = null;
 if (sessionId) {
   try {
     const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-12-18.acacia",
+      apiVersion: "2025-10-29.clover",
     });
 
     session = await stripe.checkout.sessions.retrieve(sessionId);

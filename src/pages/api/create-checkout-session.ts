@@ -6,14 +6,14 @@ export const POST: APIRoute = async ({ request }) => {
     const { priceId } = await request.json();
 
     if (!priceId) {
-      return new Response(
-        JSON.stringify({ error: "Price ID is required" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
+      return new Response(JSON.stringify({ error: "Price ID is required" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2024-12-18.acacia",
+      apiVersion: "2025-10-29.clover",
     });
 
     const origin = new URL(request.url).origin;
@@ -31,16 +31,17 @@ export const POST: APIRoute = async ({ request }) => {
       cancel_url: `${origin}/purchase-cancel`,
     });
 
-    return new Response(
-      JSON.stringify({ url: session.url }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
-    );
+    return new Response(JSON.stringify({ url: session.url }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error: any) {
     console.error("Error creating checkout session:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Failed to create checkout session" }),
+      JSON.stringify({
+        error: error.message || "Failed to create checkout session",
+      }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 };
-
