@@ -1,0 +1,77 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { products } from "../data/products.js";
+
+const pageTitle = "Shop";
+const description = "Purchase scores and educational materials by Brett Austin Eastman";
+---
+
+<MainLayout title={pageTitle} description={description}>
+  <h3 class="flex justify-around uppercase text-4xl mt-4 pb-8">Shop</h3>
+  <div class="flex flex-col max-w-5xl m-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      {products.map((product) => (
+        <div class="border border-primary70 dark:border-primary30 rounded-lg p-6 bg-primary90 dark:bg-primary30 shadow-lg">
+          <h4 class="text-2xl font-bold mb-2 text-primary10 dark:text-primary60">
+            {product.name}
+          </h4>
+          <p class="text-primary20 dark:text-primary50 mb-4">
+            {product.description}
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-3xl font-bold text-primary10 dark:text-primary60">
+              ${product.price.toFixed(2)}
+            </span>
+            <button
+              class="purchase-btn bg-primary10 dark:bg-primary60 text-primary100 dark:text-primary20 px-6 py-3 rounded-lg font-semibold hover:bg-primary20 dark:hover:bg-primary70 transition-colors duration-200"
+              data-price-id={product.priceId}
+            >
+              Purchase
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const purchaseButtons = document.querySelectorAll(".purchase-btn");
+
+    purchaseButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const priceId = button.getAttribute("data-price-id");
+
+        // Disable button and show loading state
+        button.disabled = true;
+        button.textContent = "Processing...";
+
+        try {
+          const response = await fetch("/api/create-checkout-session", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ priceId }),
+          });
+
+          const data = await response.json();
+
+          if (data.url) {
+            // Redirect to Stripe Checkout
+            window.location.href = data.url;
+          } else {
+            throw new Error(data.error || "Failed to create checkout session");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+          button.disabled = false;
+          button.textContent = "Purchase";
+        }
+      });
+    });
+  });
+</script>
+

@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const pageTitle = "Purchase Cancelled";
+const description = "Your purchase was cancelled";
+---
+
+<MainLayout title={pageTitle} description={description}>
+  <div class="flex flex-col max-w-3xl m-auto text-center">
+    <h3 class="text-4xl font-bold mb-6 text-primary10 dark:text-primary60">
+      Purchase Cancelled
+    </h3>
+
+    <p class="text-lg text-primary20 dark:text-primary50 mb-8">
+      Your purchase was cancelled. No charges were made.
+    </p>
+
+    <div class="space-x-4">
+      <a
+        href="/shop"
+        class="inline-block bg-primary10 dark:bg-primary60 text-primary100 dark:text-primary20 px-8 py-4 rounded-lg font-semibold hover:bg-primary20 dark:hover:bg-primary70 transition-colors duration-200"
+      >
+        Return to Shop
+      </a>
+    </div>
+  </div>
+</MainLayout>
+
