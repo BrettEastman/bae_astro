@@ -49,4 +49,14 @@ export const products = [
     downloadUrl:
       "https://drive.google.com/file/d/13yk9i5ab_1MlWm6rPimtz4pfo_7JSz34/view?usp=sharing",
   },
+  {
+    id: "score-5",
+    name: "Passover",
+    description:
+      "PASSOVER for solo flute explores feedback as both concept and process. Based on a poem about anxiety and self-calming, the text is transformed into music through cryptographic and electronic means, then reinterpreted by the poet-performer. Each layer—composer, performer, audience—forms a loop of reflection, where meaning dissolves and re-emerges through sound.",
+    priceId: "price_1SSpjrPjBsaDuHZo18HNBttp",
+    price: 10.0,
+    downloadUrl:
+      "https://drive.google.com/file/d/12ygPHCzmbl4aT7BpYVQOv9TIcrlbDy0Y/view?usp=sharing",
+  },
 ];
