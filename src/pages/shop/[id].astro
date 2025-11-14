@@ -13,6 +13,30 @@ const pageTitle = product.name;
 const description = product.description;
 const siteUrl = "https://www.brettaustineastman.com";
 const productUrl = `${siteUrl}/shop/${product.id}`;
+const productImageUrl = product.image
+  ? `${siteUrl}${product.image}`
+  : `${siteUrl}/BrettHeadshot2.jpg`;
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.name,
+  description: product.description,
+  image: productImageUrl,
+  url: productUrl,
+  offers: {
+    "@type": "Offer",
+    price: product.price,
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: productUrl,
+    seller: {
+      "@type": "Person",
+      name: "Brett Austin Eastman",
+    },
+  },
+};
 ---
 
 <MainLayout
@@ -21,6 +45,10 @@ const productUrl = `${siteUrl}/shop/${product.id}`;
   ogImage={product.image || "/BrettHeadshot2.jpg"}
   ogUrl={productUrl}
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <div class="flex flex-col max-w-6xl m-auto">
     <a
       href="/shop"
@@ -37,14 +65,14 @@ const productUrl = `${siteUrl}/shop/${product.id}`;
             <img
               src={product.image}
               alt={product.name}
-              class="w-full max-w-md rounded-lg shadow-lg object-cover"
+              class="w-full max-w-md rounded-lg shadow-md object-cover"
               loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
           ) : null
         }
         <div
-          class="w-full max-w-md h-96 bg-primary80 dark:bg-primary30 rounded-lg shadow-lg flex items-center justify-center text-primary30 dark:text-primary50"
+          class="w-full max-w-md h-96 bg-primary80 dark:bg-primary30 rounded-lg shadow-md flex items-center justify-center text-primary30 dark:text-primary50"
           style={product.image ? "display: none;" : "display: flex;"}
         >
           <span class="text-2xl">No Image Available</span>
