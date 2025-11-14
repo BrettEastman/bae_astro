@@ -8,6 +8,7 @@ export const products = [
     priceId: "price_1SSoaBPjBsaDuHZo7qyqXENh",
     price: 10.0,
     image: "/products/patterns-and-beats.jpg",
+    secondImage: "/products/patterns-and-beats2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1wiL7xMUoURsQ0qE2VevgQaO9fwSChHC4/view?usp=sharing",
   },
@@ -18,6 +19,7 @@ export const products = [
     priceId: "price_1SSn5NPjBsaDuHZoEoIOKGFN",
     price: 10.0,
     image: "/products/internal-external.jpg",
+    secondImage: "/products/internal-external2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1MRRoPEmUf1chrqRHbMwg3b_8IYUsvMip/view?usp=sharing",
   },
@@ -29,6 +31,7 @@ export const products = [
     priceId: "price_1SSn4XPjBsaDuHZoEqiqgAHv",
     price: 10.0,
     image: "/products/paraphrase.jpg",
+    secondImage: "/products/paraphrase2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/153UqdWHacSAUoLJeYok7_x3tvq8JM7Cu/view?usp=sharing",
   },
@@ -40,6 +43,7 @@ export const products = [
     priceId: "price_1SSoh9PjBsaDuHZo51J98t6g",
     price: 10.0,
     image: "/products/la-musique.jpg",
+    secondImage: "/products/la-musique2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1Mj7NvM81wbgKpZba8Ux07-9anjkErJdE/view?usp=sharing",
   },
@@ -51,6 +55,7 @@ export const products = [
     priceId: "price_1SSoeZPjBsaDuHZoYV7fJWVf",
     price: 10.0,
     image: "/products/mainframe.jpg",
+    secondImage: "/products/mainframe2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/13yk9i5ab_1MlWm6rPimtz4pfo_7JSz34/view?usp=sharing",
   },
@@ -62,6 +67,7 @@ export const products = [
     priceId: "price_1SSpjrPjBsaDuHZo18HNBttp",
     price: 10.0,
     image: "/products/passover.jpg",
+    secondImage: "/products/passover2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1MxVEEOtS2vqhFyn_TeFAKWLP6ARsMRT5/view?usp=sharing",
   },
@@ -72,6 +78,7 @@ export const products = [
     priceId: "price_1STTzKPjBsaDuHZowA4S5dMB",
     price: 0.0,
     image: "/products/keepsake.jpg",
+    secondImage: "/products/keepsake2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1v0dKMKkPZlkkLv-gaKbP98nNVx4Ub1Fv/view?usp=sharing",
   },
@@ -82,6 +89,7 @@ export const products = [
     priceId: "price_1STU0hPjBsaDuHZoeEia37ls",
     price: 10.0,
     image: "/products/in-response.jpg",
+    secondImage: "/products/in-response2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1NUGxu3U5q11sKJXhS-QQ7Z8o743kM0QN/view?usp=sharing",
   },
@@ -92,6 +100,7 @@ export const products = [
     priceId: "price_1STU1dPjBsaDuHZowzXpgwCP",
     price: 10.0,
     image: "/products/misma.jpg",
+    secondImage: "/products/misma2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1B5Dx9SGDUWW82eLma1XTIafrohNHMNi5/view?usp=sharing",
   },

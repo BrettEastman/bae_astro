@@ -59,15 +59,30 @@ const structuredData = {
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
       <!-- Product Image -->
-      <div class="flex items-center justify-center">
+      <div
+        class="flex items-center justify-center"
+        data-has-second-image={product.secondImage ? "true" : "false"}
+      >
         {
           product.image ? (
             <img
+              id="product-main-image"
               src={product.image}
               alt={product.name}
-              class="w-full max-w-md rounded-lg shadow-md object-cover"
+              class={`w-full max-w-md rounded-lg shadow-md object-cover ${product.secondImage ? "cursor-pointer" : ""}`}
               loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+          ) : null
+        }
+        {
+          product.secondImage ? (
+            <img
+              id="product-second-image"
+              src={product.secondImage}
+              alt={`${product.name} - Page 1`}
+              class="w-full max-w-md rounded-lg shadow-md object-cover cursor-pointer hidden"
+              loading="lazy"
             />
           ) : null
         }
@@ -149,6 +164,31 @@ const structuredData = {
           btn.textContent = "Purchase Now";
         }
       });
+    }
+
+    // Image toggle functionality
+    const imageContainer = document.querySelector(
+      '[data-has-second-image="true"]'
+    );
+
+    if (imageContainer) {
+      const mainImage = document.getElementById("product-main-image");
+      const secondImage = document.getElementById("product-second-image");
+
+      if (mainImage && secondImage) {
+        const toggleImages = () => {
+          if (mainImage.classList.contains("hidden")) {
+            mainImage.classList.remove("hidden");
+            secondImage.classList.add("hidden");
+          } else {
+            mainImage.classList.add("hidden");
+            secondImage.classList.remove("hidden");
+          }
+        };
+
+        mainImage.addEventListener("click", toggleImages);
+        secondImage.addEventListener("click", toggleImages);
+      }
     }
   });
 </script>
