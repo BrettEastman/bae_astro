@@ -18,11 +18,12 @@ const description =
             class="group flex flex-col border border-primary70 dark:border-primary30 rounded-lg bg-primary90 dark:bg-primary30 shadow-lg hover:shadow-xl transition-all duration-200 overflow-hidden"
           >
             <!-- Product Image -->
-            <div class="w-full h-108 bg-primary80 dark:bg-primary30 overflow-hidden">
+            <div class="w-full h-[480px] bg-primary80 dark:bg-primary30 overflow-hidden">
               {product.image ? (
               <img
                 src={product.image}
                 alt={product.name}
+                loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                 onerror="this.style.display='none'; this.parentElement.classList.add('flex', 'items-center', 'justify-center');"
               />

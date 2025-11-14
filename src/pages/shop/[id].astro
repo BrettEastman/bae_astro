@@ -11,9 +11,16 @@ if (!product) {
 
 const pageTitle = product.name;
 const description = product.description;
+const siteUrl = "https://www.brettaustineastman.com";
+const productUrl = `${siteUrl}/shop/${product.id}`;
 ---
 
-<MainLayout title={pageTitle} description={description}>
+<MainLayout
+  title={pageTitle}
+  description={description}
+  ogImage={product.image || "/BrettHeadshot2.jpg"}
+  ogUrl={productUrl}
+>
   <div class="flex flex-col max-w-6xl m-auto">
     <a
       href="/shop"
@@ -31,6 +38,7 @@ const description = product.description;
               src={product.image}
               alt={product.name}
               class="w-full max-w-md rounded-lg shadow-lg object-cover"
+              loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
           ) : null
