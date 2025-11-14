@@ -1,0 +1,89 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { products } from "../data/products.js";
+
+const pageTitle = "Shop";
+const description =
+  "Purchase scores and educational materials by Brett Austin Eastman";
+
+const siteUrl = "https://www.brettaustineastman.com";
+
+// Structured data for SEO - ItemList schema
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Shop - Brett Austin Eastman",
+  description: description,
+  itemListElement: products.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Product",
+      name: product.name,
+      description: product.description,
+      image: product.image ? `${siteUrl}${product.image}` : `${siteUrl}/BrettHeadshot2.jpg`,
+      url: `${siteUrl}/shop/${product.id}`,
+      offers: {
+        "@type": "Offer",
+        price: product.price,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
+    },
+  })),
+};
+---
+
+<MainLayout title={pageTitle} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <h3 class="flex justify-around uppercase text-4xl mt-4 pb-8">Shop</h3>
+  <div class="flex flex-col max-w-6xl m-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      {
+        products.map((product) => (
+          <a
+            href={`/shop/${product.id}`}
+            class="group flex flex-col border border-primary70 dark:border-primary30 rounded-lg bg-primary90 dark:bg-primary30 shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden"
+          >
+            <!-- Product Image -->
+            <div class="w-full h-[480px] bg-primary80 dark:bg-primary30 overflow-hidden">
+              {product.image ? (
+              <img
+                src={product.image}
+                alt={product.name}
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                onerror="this.style.display='none'; this.parentElement.classList.add('flex', 'items-center', 'justify-center');"
+              />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center text-primary30 dark:text-primary50">
+                <span>No Image</span>
+              </div>
+            )}
+            </div>
+
+            <!-- Product Info -->
+            <div class="flex flex-col justify-between p-6 flex-grow">
+              <div>
+                <h4 class="text-xl font-bold mb-2 text-primary10 dark:text-primary60 group-hover:text-accentDark transition-colors">
+                  {product.name}
+                </h4>
+                <p class="text-primary20 dark:text-primary50 mb-4 line-clamp-3 text-sm">
+                  {product.description}
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-primary70 dark:border-primary30">
+                <span class="text-2xl font-bold text-primary10 dark:text-primary60">
+                  ${product.price.toFixed(2)}
+                </span>
+                <span class="text-primary10 dark:text-primary60 group-hover:text-accentDark transition-colors">
+                  View Details →
+                </span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>

@@ -1,0 +1,154 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { products } from "../../data/products.js";
+
+const { id } = Astro.params;
+const product = products.find((p) => p.id === id);
+
+if (!product) {
+  return Astro.redirect("/shop", 404);
+}
+
+const pageTitle = product.name;
+const description = product.description;
+const siteUrl = "https://www.brettaustineastman.com";
+const productUrl = `${siteUrl}/shop/${product.id}`;
+const productImageUrl = product.image
+  ? `${siteUrl}${product.image}`
+  : `${siteUrl}/BrettHeadshot2.jpg`;
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.name,
+  description: product.description,
+  image: productImageUrl,
+  url: productUrl,
+  offers: {
+    "@type": "Offer",
+    price: product.price,
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: productUrl,
+    seller: {
+      "@type": "Person",
+      name: "Brett Austin Eastman",
+    },
+  },
+};
+---
+
+<MainLayout
+  title={pageTitle}
+  description={description}
+  ogImage={product.image || "/BrettHeadshot2.jpg"}
+  ogUrl={productUrl}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+  <div class="flex flex-col max-w-6xl m-auto">
+    <a
+      href="/shop"
+      class="text-primary10 dark:text-primary60 border-b border-primary10 dark:border-primary60 hover:border-none duration-200 mb-6 self-start"
+    >
+      ← Back to Shop
+    </a>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <!-- Product Image -->
+      <div class="flex items-center justify-center">
+        {
+          product.image ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              class="w-full max-w-md rounded-lg shadow-md object-cover"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+          ) : null
+        }
+        <div
+          class="w-full max-w-md h-96 bg-primary80 dark:bg-primary30 rounded-lg shadow-md flex items-center justify-center text-primary30 dark:text-primary50"
+          style={product.image ? "display: none;" : "display: flex;"}
+        >
+          <span class="text-2xl">No Image Available</span>
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="flex flex-col justify-between">
+        <div>
+          <h1
+            class="text-4xl md:text-5xl font-bold mb-4 text-primary10 dark:text-primary60"
+          >
+            {product.name}
+          </h1>
+          <p
+            class="text-xl text-primary20 dark:text-primary50 mb-6 leading-relaxed"
+          >
+            {product.description}
+          </p>
+        </div>
+
+        <div class="border-t border-primary70 dark:border-primary30 pt-6">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-4xl font-bold text-primary10 dark:text-primary60">
+              ${product.price.toFixed(2)}
+            </span>
+          </div>
+          <button
+            class="purchase-btn w-full bg-primary10 dark:bg-primary60 text-primary100 dark:text-primary20 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary20 dark:hover:bg-primary70 transition-colors duration-200"
+            data-price-id={product.priceId}
+          >
+            Purchase Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const purchaseButton = document.querySelector(".purchase-btn");
+
+    if (purchaseButton) {
+      purchaseButton.addEventListener("click", async () => {
+        const priceId = purchaseButton.getAttribute("data-price-id");
+        const btn = purchaseButton as HTMLButtonElement;
+
+        // Disable button and show loading state
+        btn.disabled = true;
+        btn.textContent = "Processing...";
+
+        try {
+          const response = await fetch("/api/create-checkout-session", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ priceId }),
+          });
+
+          const data = await response.json();
+
+          if (data.url) {
+            // Redirect to Stripe Checkout
+            window.location.href = data.url;
+          } else {
+            throw new Error(data.error || "Failed to create checkout session");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+          btn.disabled = false;
+          btn.textContent = "Purchase Now";
+        }
+      });
+    }
+  });
+</script>

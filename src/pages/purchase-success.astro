@@ -1,0 +1,98 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Stripe from "stripe";
+import { products } from "../data/products.js";
+
+const pageTitle = "Purchase Successful";
+const description = "Thank you for your purchase";
+
+// Get session ID from query params
+const sessionId = Astro.url.searchParams.get("session_id");
+
+let session = null;
+let purchasedProduct = null;
+
+if (sessionId) {
+  try {
+    const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {
+      apiVersion: "2025-10-29.clover",
+    });
+
+    session = await stripe.checkout.sessions.retrieve(sessionId);
+
+    if (session.payment_status === "paid") {
+      // Retrieve line items separately
+      const lineItems = await stripe.checkout.sessions.listLineItems(sessionId, {
+        expand: ["data.price"],
+      });
+
+      if (lineItems.data.length > 0) {
+        // Get the price ID from the first line item
+        const priceId = lineItems.data[0].price?.id;
+
+        if (priceId) {
+          // Find the matching product
+          purchasedProduct = products.find((p) => p.priceId === priceId);
+        }
+      }
+    }
+  } catch (error) {
+    console.error("Error retrieving session:", error);
+  }
+}
+---
+
+<MainLayout title={pageTitle} description={description}>
+  <div class="flex flex-col max-w-3xl m-auto text-center">
+    <h3 class="text-4xl font-bold mb-6 text-primary10 dark:text-primary60">
+      Thank You for Your Purchase!
+    </h3>
+
+    {session && session.payment_status === "paid" ? (
+      <div class="space-y-6">
+        {purchasedProduct ? (
+          <>
+            <p class="text-lg text-primary20 dark:text-primary50">
+              Your payment for <strong>{purchasedProduct.name}</strong> was successful. You can now download your purchase.
+            </p>
+
+            <div class="mt-8">
+              <a
+                href={purchasedProduct.downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-primary10 dark:bg-primary60 text-primary100 dark:text-primary20 px-8 py-4 rounded-lg font-semibold hover:bg-primary20 dark:hover:bg-primary70 transition-colors duration-200"
+              >
+                Download {purchasedProduct.name}
+              </a>
+            </div>
+          </>
+        ) : (
+          <p class="text-lg text-primary20 dark:text-primary50">
+            Your payment was successful. Please check your email for download instructions.
+          </p>
+        )}
+
+        <p class="text-sm text-primary30 dark:text-primary40 mt-6">
+          A confirmation email has been sent to your email address.
+        </p>
+      </div>
+    ) : (
+      <div class="space-y-6">
+        <p class="text-lg text-primary20 dark:text-primary50">
+          We're processing your payment. Please check your email for confirmation.
+        </p>
+      </div>
+    )}
+
+    <div class="mt-8">
+      <a
+        href="/shop"
+        class="text-primary10 dark:text-primary60 border-b border-primary10 dark:border-primary60 hover:border-none duration-200"
+      >
+        Return to Shop
+      </a>
+    </div>
+  </div>
+</MainLayout>
+

@@ -3,7 +3,14 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-const { title, description } = Astro.props;
+const { title, description, ogImage, ogUrl } = Astro.props;
+const siteUrl = "https://www.brettaustineastman.com";
+const currentUrl = ogUrl || Astro.url.href;
+const ogImageUrl = ogImage
+  ? ogImage.startsWith("http")
+    ? ogImage
+    : `${siteUrl}${ogImage}`
+  : `${siteUrl}/BrettHeadshot2.jpg`;
 ---
 
 <html lang="en">
@@ -13,58 +20,58 @@ const { title, description } = Astro.props;
       name="description"
       content="Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"
     />
-     <!-- Adding dark mode script at the top to avoid flash -->
-     <script is:inline>
+    <!-- Adding dark mode script at the top to avoid flash -->
+    <script is:inline>
       // Check for dark mode preference
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
       // Apply dark mode class immediately to prevent flash
       if (isDarkMode) {
-        document.documentElement.classList.add('dark');
+        document.documentElement.classList.add("dark");
       }
-     </script>
-     <!-- Facebook Meta Tags -->
-     <meta property="og:url" content="https://www.brettaustineastman.com/" />
-     <meta property="og:type" content="website" />
-     <meta property="og:title" content={title} />
-     <meta
-       property="og:description"
-       content={description || "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
-     />
-     <meta
-       property="og:image"
-       content="/BrettHeadshot2.jpg"
-     />
+    </script>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content={description ||
+        "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
+    />
+    <meta property="og:image" content={ogImageUrl} />
 
-     <!-- Twitter Meta Tags -->
-     <meta name="twitter:card" content="summary_large_image" />
-     <meta property="twitter:domain" content="heliamusiccollective.com" />
-     <meta
-       property="twitter:url"
-       content="https://www.brettaustineastman.com/"
-     />
-     <meta name="twitter:title" content={title} />
-     <meta
-       name="twitter:description"
-       content={description || "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
-     />
-     <meta
-       name="twitter:image"
-       content="/BrettHeadshot2.jpg"
-     />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="brettaustineastman.com" />
+    <meta property="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={description ||
+        "Brett Austin Eastman is a software engineer, musician, audio engineer, and composer"}
+    />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/BAEicon2.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title} - Brett Austin Eastman</title>
   </head>
   <body>
     <div class="min-h-screen flex flex-col">
       <div
-        class="bg-primary80 dark:bg-primary30 border-b-2 border-primary70 pb-2 dark:border-primary30 shadow-xl dark:shadow-none pt-[10px] sm:pt-16 sm:pb-8 z-50"
+        class="bg-primary80 dark:bg-primary30 border-b-2 border-primary70 pb-2 dark:border-primary30 shadow-md dark:shadow-none pt-[10px] sm:pt-16 sm:pb-8 z-50"
       >
         <Header />
       </div>
-      <main class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60 transition-fade">
+      <main
+        class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60 transition-fade"
+      >
         <slot />
       </main>
       <Footer />
@@ -74,25 +81,25 @@ const { title, description } = Astro.props;
     </div>
     <script is:inline>
       // Use client-side JavaScript for page transitions
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         // Initialize page transitions
         const initPageTransitions = () => {
-          document.querySelectorAll('a[href]').forEach(link => {
+          document.querySelectorAll("a[href]").forEach((link) => {
             // Only handle internal links
             if (
               link.hostname === window.location.hostname &&
-              !link.hasAttribute('target') &&
-              !link.href.startsWith('mailto:') &&
-              !link.href.startsWith('tel:') &&
-              !link.hasAttribute('data-no-transition')
+              !link.hasAttribute("target") &&
+              !link.href.startsWith("mailto:") &&
+              !link.href.startsWith("tel:") &&
+              !link.hasAttribute("data-no-transition")
             ) {
-              link.addEventListener('click', e => {
+              link.addEventListener("click", (e) => {
                 e.preventDefault();
-                const currentPage = document.querySelector('main');
-                const href = link.getAttribute('href');
+                const currentPage = document.querySelector("main");
+                const href = link.getAttribute("href");
 
                 // Start fade out
-                currentPage.style.opacity = '0';
+                currentPage.style.opacity = "0";
 
                 // Navigate after transition completes
                 setTimeout(() => {
@@ -107,19 +114,21 @@ const { title, description } = Astro.props;
         initPageTransitions();
 
         // Make sure the page is visible when loaded
-        document.querySelector('main').style.opacity = '1';
+        document.querySelector("main").style.opacity = "1";
       });
     </script>
 
     <!-- Ensure dark mode is maintained across page loads -->
     <script is:inline>
       // Check for stored dark mode preference on each page load
-      document.addEventListener('DOMContentLoaded', () => {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.addEventListener("DOMContentLoaded", () => {
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
         if (prefersDark) {
-          document.documentElement.classList.add('dark');
+          document.documentElement.classList.add("dark");
         }
       });
     </script>
-</body>
+  </body>
 </html>
