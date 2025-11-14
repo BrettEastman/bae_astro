@@ -8,6 +8,7 @@ export const products = [
     priceId: "price_1SSoaBPjBsaDuHZo7qyqXENh",
     price: 10.0,
     image: "/products/patterns-and-beats.jpg",
+    secondImage: "/products/patterns-and-beats2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1wiL7xMUoURsQ0qE2VevgQaO9fwSChHC4/view?usp=sharing",
   },
@@ -18,6 +19,7 @@ export const products = [
     priceId: "price_1SSn5NPjBsaDuHZoEoIOKGFN",
     price: 10.0,
     image: "/products/internal-external.jpg",
+    secondImage: "/products/internal-external2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1MRRoPEmUf1chrqRHbMwg3b_8IYUsvMip/view?usp=sharing",
   },
@@ -29,6 +31,7 @@ export const products = [
     priceId: "price_1SSn4XPjBsaDuHZoEqiqgAHv",
     price: 10.0,
     image: "/products/paraphrase.jpg",
+    secondImage: "/products/paraphrase2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/153UqdWHacSAUoLJeYok7_x3tvq8JM7Cu/view?usp=sharing",
   },
@@ -40,6 +43,7 @@ export const products = [
     priceId: "price_1SSoh9PjBsaDuHZo51J98t6g",
     price: 10.0,
     image: "/products/la-musique.jpg",
+    secondImage: "/products/la-musique2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/1Mj7NvM81wbgKpZba8Ux07-9anjkErJdE/view?usp=sharing",
   },
@@ -51,6 +55,7 @@ export const products = [
     priceId: "price_1SSoeZPjBsaDuHZoYV7fJWVf",
     price: 10.0,
     image: "/products/mainframe.jpg",
+    secondImage: "/products/mainframe2.jpg",
     downloadUrl:
       "https://drive.google.com/file/d/13yk9i5ab_1MlWm6rPimtz4pfo_7JSz34/view?usp=sharing",
   },
@@ -62,7 +67,41 @@ export const products = [
     priceId: "price_1SSpjrPjBsaDuHZo18HNBttp",
     price: 10.0,
     image: "/products/passover.jpg",
+    secondImage: "/products/passover2.jpg",
     downloadUrl:
-      "https://drive.google.com/file/d/12ygPHCzmbl4aT7BpYVQOv9TIcrlbDy0Y/view?usp=sharing",
+      "https://drive.google.com/file/d/1MxVEEOtS2vqhFyn_TeFAKWLP6ARsMRT5/view?usp=sharing",
+  },
+  {
+    id: "score-6",
+    name: "Keepsake (for Rishi)",
+    description: `Keepsake for contrabass flute and contraforte honors Rishi Dhanivan Sweeney, the daughter of a close friend who passed away at two months. The piece weaves themes from rock songs the composer and Rishi’s father once played together with cryptogram-based transcriptions of quotations addressed to her. These contrasting musical languages form a mosaic reflecting memory, grief, and a metaphysical call to a life gone too soon.`,
+    priceId: "price_1STTzKPjBsaDuHZowA4S5dMB",
+    price: 0.0,
+    image: "/products/keepsake.jpg",
+    secondImage: "/products/keepsake2.jpg",
+    downloadUrl:
+      "https://drive.google.com/file/d/1v0dKMKkPZlkkLv-gaKbP98nNVx4Ub1Fv/view?usp=sharing",
+  },
+  {
+    id: "score-7",
+    name: "In Response",
+    description: `In Response for flute and fixed media reflects the struggle of confronting society's relentless narratives without a way to speak back. The fixed media—an electric-guitar feedback performance—symbolizes overwhelming information from distant sources, while the flute embodies the individual voice pushing against it, offering a fragile but insistent response.`,
+    priceId: "price_1STU0hPjBsaDuHZoeEia37ls",
+    price: 10.0,
+    image: "/products/in-response.jpg",
+    secondImage: "/products/in-response2.jpg",
+    downloadUrl:
+      "https://drive.google.com/file/d/1NUGxu3U5q11sKJXhS-QQ7Z8o743kM0QN/view?usp=sharing",
+  },
+  {
+    id: "score-8",
+    name: "MISMA",
+    description: `MISMA for violin, clarinet, cello, and piano unfolds in five movements, each built from a quote by an artist meaningful to the composer—Hildegard von Bingen, Solange, Amber Sermeño, Ara Jo, Etta James, Kathleen Hanna, and Naomi Stine. Using a cryptogram inspired by Messiaen’s “language of the angels,” the work transforms text into musical material. Named for the Spanish word for “same,” MISMA reflects fractal ideas, altered symmetry, and the voices that shaped its creation.`,
+    priceId: "price_1STU1dPjBsaDuHZowzXpgwCP",
+    price: 10.0,
+    image: "/products/misma.jpg",
+    secondImage: "/products/misma2.jpg",
+    downloadUrl:
+      "https://drive.google.com/file/d/1B5Dx9SGDUWW82eLma1XTIafrohNHMNi5/view?usp=sharing",
   },
 ];
