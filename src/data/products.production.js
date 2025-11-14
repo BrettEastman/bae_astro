@@ -1,12 +1,3 @@
-// Production mode products - used when STRIPE_SECRET_KEY starts with sk_live_
-// TODO: Replace these price IDs with your live mode price IDs from Stripe
-// To get live price IDs:
-// 1. Switch Stripe dashboard to Live mode
-// 2. Go to Products section
-// 3. Create products (or duplicate from test mode)
-// 4. Copy the Price IDs (they start with price_)
-// 5. Replace the priceId values below
-
 export const products = [
   {
     id: "drum-book",
