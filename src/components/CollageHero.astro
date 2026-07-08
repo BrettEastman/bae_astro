@@ -1,0 +1,145 @@
+---
+// Server Side
+import { Image } from "astro:assets";
+
+interface Props {
+  imageMetaData: ImageMetadata;
+  alt: string;
+}
+
+const { imageMetaData, alt } = Astro.props;
+---
+
+<section
+  class="collage-hero max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 items-center min-h-[70vh] py-10"
+>
+  <!-- Collage side -->
+  <div class="collage relative flex items-center justify-center">
+    <!-- Accent rays -->
+    <div class="ray ray-1" aria-hidden="true"></div>
+    <div class="ray ray-2" aria-hidden="true"></div>
+    <div class="ray ray-3" aria-hidden="true"></div>
+    <div class="ray ray-4" aria-hidden="true"></div>
+    <!-- Offset frame -->
+    <div class="frame" aria-hidden="true"></div>
+    <!-- Cutout image layer (placeholder until collage assets arrive) -->
+    <div class="cutout">
+      <Image width={520} alt={alt} src={imageMetaData} />
+    </div>
+    <!-- Small accent block -->
+    <div class="chip" aria-hidden="true"></div>
+  </div>
+
+  <!-- Type side -->
+  <div class="hero-copy flex flex-col gap-5 md:pl-6 text-center md:text-left">
+    <h2
+      class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-none text-ink dark:text-primary70"
+    >
+      Brett Austin<br />Eastman
+    </h2>
+    <p
+      class="uppercase tracking-[0.25em] text-sm md:text-base text-primary40 dark:text-primary50"
+    >
+      Composer &mdash; Musician &mdash; Engineer
+    </p>
+    <div class="flex gap-4 justify-center md:justify-start mt-2">
+      <a
+        href="/selected-works"
+        class="px-5 py-3 bg-ink text-paper dark:bg-primary70 dark:text-surfaceDark text-sm uppercase tracking-wider hover:bg-accent dark:hover:bg-accent dark:hover:text-paper transition-colors duration-200"
+        >Selected Works</a
+      >
+      <a
+        href="/about"
+        class="px-5 py-3 border border-ink dark:border-primary70 text-sm uppercase tracking-wider text-ink dark:text-primary70 hover:border-accent hover:text-accent dark:hover:text-accent transition-colors duration-200"
+        >About</a
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .collage {
+    min-height: 380px;
+  }
+
+  .cutout {
+    position: relative;
+    z-index: 3;
+    max-width: 70%;
+    transform: rotate(-2deg);
+    box-shadow: 0 18px 40px rgba(17, 17, 17, 0.18);
+  }
+
+  .frame {
+    position: absolute;
+    z-index: 2;
+    width: 62%;
+    height: 78%;
+    border: 2px solid var(--ink);
+    transform: translate(6%, 7%) rotate(2deg);
+  }
+  :global(html.dark) .frame {
+    border-color: var(--primary70);
+  }
+
+  .ray {
+    position: absolute;
+    z-index: 1;
+    width: 42%;
+    height: 12%;
+    background-color: var(--accent);
+    opacity: 0.85;
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 65%);
+  }
+  .ray-1 {
+    transform: rotate(-40deg) translate(-58%, -180%);
+  }
+  .ray-2 {
+    transform: rotate(-15deg) translate(-62%, -60%);
+  }
+  .ray-3 {
+    transform: rotate(12deg) translate(-60%, 60%);
+  }
+  .ray-4 {
+    transform: rotate(38deg) translate(-52%, 190%);
+  }
+
+  .chip {
+    position: absolute;
+    z-index: 4;
+    right: 12%;
+    bottom: 8%;
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: var(--accent);
+    transform: rotate(12deg);
+  }
+
+  /* Entrance animation */
+  .collage-hero .collage,
+  .collage-hero .hero-copy {
+    animation: hero-rise 600ms ease both;
+  }
+  .collage-hero .hero-copy {
+    animation-delay: 120ms;
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .collage {
+      min-height: 320px;
+    }
+    .cutout {
+      max-width: 80%;
+    }
+  }
+</style>

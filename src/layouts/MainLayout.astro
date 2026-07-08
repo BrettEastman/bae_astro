@@ -57,7 +57,7 @@ const ogImageUrl = ogImage
     <link rel="icon" type="image/svg+xml" href="/BAEicon2.png" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title} - Brett Austin Eastman</title>
@@ -65,12 +65,12 @@ const ogImageUrl = ogImage
   <body>
     <div class="min-h-screen flex flex-col">
       <div
-        class="bg-primary80 dark:bg-primary30 border-b-2 border-primary70 pb-2 dark:border-primary30 shadow-md dark:shadow-none pt-[10px] sm:pt-16 sm:pb-8 z-50"
+        class="sticky top-0 bg-paper dark:bg-surfaceDark border-b border-line dark:border-lineDark z-50"
       >
         <Header />
       </div>
       <main
-        class="grow pt-16 pl-4 pr-4 pb-4 bg-primary100 text-primary10 dark:bg-primary20 dark:text-primary60 transition-fade"
+        class="grow pt-12 px-4 pb-4 bg-paper text-ink dark:bg-surfaceDark dark:text-primary60 transition-fade"
       >
         <slot />
       </main>
