@@ -1,18 +1,18 @@
 ---
 // Server Side
 import MainLayout from "../layouts/MainLayout.astro";
+import PageTitle from "../components/PageTitle.astro";
 import YouTubeEmbedLazy from "../components/YouTubeEmbedLazy.astro";
-const aClass = "border-b border-primary10 dark:border-primary70 hover:text-accentDark hover:border-none duration-200";
+const aClass =
+  "border-b border-primary60 dark:border-primary40 hover:text-accent hover:border-accent transition-colors duration-200";
 
-const pageTitle = "About";
+const pageTitle = "Sound Design";
 const description =
   "Learn more about Brett Austin Eastman's work in sound design.";
 ---
 
 <MainLayout title={pageTitle} description={description}>
-  <h3 class="flex justify-around uppercase mt-4 mb-4 pb-8 text-3xl md:text-4xl">
-    Sound Design
-  </h3>
+  <PageTitle title="Sound Design" />
   <div class="flex flex-col max-w-5xl m-auto text-lg md:text-xl">
     <div class="leading-relaxed">
       <YouTubeEmbedLazy
@@ -33,14 +33,14 @@ const description =
         <a
           class={aClass}
           href="https://www.amazon.com/Murder-Hi-Good-David-Nordstrom/dp/B08W8W7BRF"
-          target="_blank"><em>Watch</em></a
+          target="_blank" rel="noopener noreferrer"><em>Watch</em></a
         > on Amazon
       </div>
       <div class="mb-8">
         <a
           class={aClass}
           href="https://www.imdb.com/title/tt2182390/"
-          target="_blank"><em>The Murder of Hi Good</em></a
+          target="_blank" rel="noopener noreferrer"><em>The Murder of Hi Good</em></a
         > on IMDB.
       </div>
     </div>

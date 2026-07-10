@@ -1,4 +1,8 @@
 document.querySelector(".hamburger").addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("expanded");
-  document.querySelector(".hamburger").classList.toggle("active");
+  document.querySelectorAll(".nav-links").forEach((nav) => {
+    nav.classList.toggle("expanded");
+  });
+  const hamburger = document.querySelector(".hamburger");
+  const isExpanded = hamburger.classList.toggle("active");
+  hamburger.setAttribute("aria-expanded", String(isExpanded));
 });

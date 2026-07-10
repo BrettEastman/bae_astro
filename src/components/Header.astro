@@ -3,21 +3,26 @@ import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
 ---
 
-<header>
+<header class="max-w-6xl mx-auto px-4 py-3 md:py-4">
   <div class="name-header">
     <h1
-      class="uppercase tracking-wider text-4xl font-medium text-center text-primary10 dark:text-primary70 md:text-5xl lg:text-7xl lg:p-8 lg:mb-2"
+      class="uppercase tracking-widest text-base md:text-lg font-semibold text-primary10 dark:text-primary70"
     >
-      <a class="hidden lg:flex" href='/' aria-label="Go to Home Page">Brett Austin Eastman</a>
-      <a class="hidden md:flex lg:hidden" href='/' aria-label="Go to Home Page">Brett A. Eastman</a>
-      <a class="hidden sm:flex sm:align-center md:hidden" href='/' aria-label="Go to Home Page">Brett Eastman</a>
-      <a class="sm:hidden" href='/' aria-label="Go to Home Page">Brett Eastman</a>
+      <a class="hidden sm:inline" href="/" aria-label="Go to Home Page"
+        >Brett Austin Eastman</a
+      >
+      <a class="sm:hidden" href="/" aria-label="Go to Home Page"
+        >Brett Eastman</a
+      >
     </h1>
-    <div class="flex justify-end">
+    <nav class="hidden md:block" aria-label="Main navigation">
+      <Navigation />
+    </nav>
+    <div class="flex justify-end md:hidden">
       <Hamburger />
     </div>
   </div>
-  <nav class="flex justify-center">
+  <nav id="mobile-nav" class="md:hidden" aria-label="Mobile navigation">
     <Navigation />
   </nav>
 </header>
