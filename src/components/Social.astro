@@ -8,6 +8,7 @@ const { platform, username } = Astro.props;
   href={`https://www.${platform}.com/${username}/`}
   aria-label={`Go to ${platform} page`}
   target="_blank"
+  rel="noopener noreferrer"
 >
   <Icon name={`mdi:${platform}`} size={40}/>
 </a>
