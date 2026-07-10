@@ -158,6 +158,8 @@ button:focus-visible {
   display: none;
   position: relative;
   z-index: 2;
+  background: none;
+  border: none;
 }
 .hamburger .line {
   display: block;
