@@ -1,13 +1,13 @@
 ---
 // Server Side
-import { Image } from "astro:assets";
-
 interface Props {
-  imageMetaData: ImageMetadata;
+  imageSrc: string;
+  imageWidth: number;
+  imageHeight: number;
   alt: string;
 }
 
-const { imageMetaData, alt } = Astro.props;
+const { imageSrc, imageWidth, imageHeight, alt } = Astro.props;
 ---
 
 <section
@@ -15,16 +15,22 @@ const { imageMetaData, alt } = Astro.props;
 >
   <!-- Collage side -->
   <div class="collage relative flex items-center justify-center">
-    <!-- Accent rays -->
+    <!-- Photo-slice rays cut from wolf-moon.jpeg -->
     <div class="ray ray-1" aria-hidden="true"></div>
     <div class="ray ray-2" aria-hidden="true"></div>
     <div class="ray ray-3" aria-hidden="true"></div>
     <div class="ray ray-4" aria-hidden="true"></div>
     <!-- Offset frame -->
     <div class="frame" aria-hidden="true"></div>
-    <!-- Cutout image layer (placeholder until collage assets arrive) -->
+    <!-- Cutout image layer -->
     <div class="cutout">
-      <Image width={520} alt={alt} src={imageMetaData} />
+      <img
+        src={imageSrc}
+        alt={alt}
+        width={imageWidth}
+        height={imageHeight}
+        loading="eager"
+      />
     </div>
     <!-- Small accent block -->
     <div class="chip" aria-hidden="true"></div>
@@ -85,23 +91,35 @@ const { imageMetaData, alt } = Astro.props;
   .ray {
     position: absolute;
     z-index: 1;
-    width: 42%;
-    height: 12%;
-    background-color: var(--accent);
-    opacity: 0.85;
+    width: 46%;
+    height: 15%;
+    background-image: url("/wolf-moon.jpeg");
+    background-size: 300%;
+    background-repeat: no-repeat;
     clip-path: polygon(0 35%, 100% 0, 100% 100%, 0 65%);
   }
+  :global(html.dark) .ray {
+    filter: brightness(0.85);
+  }
   .ray-1 {
-    transform: rotate(-40deg) translate(-58%, -180%);
+    /* moon in the pink sky */
+    background-position: 12% 22%;
+    transform: rotate(-40deg) translate(-52%, -150%);
   }
   .ray-2 {
-    transform: rotate(-15deg) translate(-62%, -60%);
+    /* hills and bay */
+    background-position: 75% 42%;
+    transform: rotate(-15deg) translate(-58%, -50%);
   }
   .ray-3 {
-    transform: rotate(12deg) translate(-60%, 60%);
+    /* rooftops */
+    background-position: 45% 62%;
+    transform: rotate(12deg) translate(-56%, 50%);
   }
   .ray-4 {
-    transform: rotate(38deg) translate(-52%, 190%);
+    /* green hillside */
+    background-position: 30% 92%;
+    transform: rotate(38deg) translate(-48%, 160%);
   }
 
   .chip {

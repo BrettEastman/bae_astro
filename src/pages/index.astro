@@ -1,7 +1,6 @@
 ---
 // Server Side
 import MainLayout from "../layouts/MainLayout.astro";
-import Headshot from "../images/BrettProfile.jpg";
 import CollageHero from "../components/CollageHero.astro";
 
 const pageTitle = "Home";
@@ -11,7 +10,9 @@ const description =
 
 <MainLayout title={pageTitle} description={description}>
 	<CollageHero
-		imageMetaData={Headshot}
+		imageSrc="/Brett2026.jpeg"
+		imageWidth={516}
+		imageHeight={508}
 		alt="Picture of Brett Austin Eastman"
 	/>
 </MainLayout>
