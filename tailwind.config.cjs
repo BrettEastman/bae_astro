@@ -28,14 +28,15 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Space Grotesk",
+          "Familjen Grotesk",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
           "sans-serif",
         ],
         display: [
-          "Space Grotesk",
+          "Syne",
+          "Familjen Grotesk",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
